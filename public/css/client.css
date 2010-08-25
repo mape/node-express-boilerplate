@@ -1,0 +1,53 @@
+::-moz-selection {
+	background-color: rgba(0,0,0,0.6);
+}
+
+::selection {
+	background-color: rgba(0,0,0,0.6);
+}
+html
+{
+	gradient: #ddd_#ccc;
+	height: 100%;
+}
+body
+{
+	height: 100%;
+	-vendor-box-sizing: border-box;
+	background: data-url(/img/bg.png);
+	color: #222;
+	margin: 0;
+	font: 12px 'helvetica neue', helvetica, arial, sans-serif;
+	text-rendering: optimizeLegibility;
+}
+a
+{
+	color: #000;
+	text-decoration: none;
+	outline: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+h1,h2,h3,h4,h5
+{
+	font-weight: bold;
+	-vendor-text-shadow: 1px 1px 0 rgba(255,255,255,0.8), 0 0 15px rgba(0,0,0,0.4);
+}
+h1
+{
+	font-size: 30px;
+}
+#page-container
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -32px 0 0 -330px;
+	border: 1px rgba(255,255,255,0.3) solid;
+	gradient: rgba(255,255,255,1)_rgba(255,255,255,0.1);
+	-vendor-box-shadow: 0px 0px 15px rgba(0,0,0,0.3), 0px 0px 10px rgba(0,0,0,0.2) inset;
+	padding: 12px 15px;
+	-vendor-border-radius: 15px;
+}
