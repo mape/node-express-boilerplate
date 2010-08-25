@@ -1,0 +1,14 @@
+{
+  "name" : "node-express-boilerplate",
+  "description" : "A boilerplate used to quickly get minor projects going. With less configuration.",
+  "version" : "0.0.1",
+  "author" : "Mathias Pettersson <mape@mape.me>",
+  "engines" : ["node"],
+  "repository" : { "type":"git", "url":"http://github.com/mape/node-express-boilerplate" },
+  "dependencies" : {
+    "connect" : ">=0.2.4",
+    "connect-assetmanager" : ">=0.0.4",
+    "connect-assetmanager-handlers" : ">=0.0.6",
+    "express" : ">=1.0.0"
+  }
+}

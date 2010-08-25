@@ -4,8 +4,7 @@ var assetHandler = require('connect-assetmanager-handlers');
 var express = require('express');
 
 process.title = 'node-express-boilerplate';
-process.addListener('uncaughtException', function (err, stack)
-{
+process.addListener('uncaughtException', function (err, stack) {
 	console.log('Caught exception: ' + err);
 	console.log(err.stack.split('\n'));
 });
