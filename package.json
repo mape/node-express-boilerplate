@@ -9,6 +9,7 @@
     "connect" : ">=0.2.4",
     "connect-assetmanager" : ">=0.0.4",
     "connect-assetmanager-handlers" : ">=0.0.6",
+    "ejs" : ">=0.2.0",
     "express" : ">=1.0.0"
   }
 }
