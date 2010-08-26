@@ -118,4 +118,4 @@ app.get('/reload/', function(req, res) {
 	})();
 });
 
-app.listen(1343);
+app.listen(80);
