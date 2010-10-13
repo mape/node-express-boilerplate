@@ -7,14 +7,14 @@
 }
 html
 {
-	gradient: #ddd_#ccc;
 	height: 100%;
+	gradient: #222_#555;
 }
 body
 {
 	height: 100%;
 	-vendor-box-sizing: border-box;
-	background: data-url(/img/bg.png);
+	background: url(/img/bg.png);
 	color: #222;
 	margin: 0;
 	font: 12px 'helvetica neue', helvetica, arial, sans-serif;
@@ -33,21 +33,41 @@ a:hover
 h1,h2,h3,h4,h5
 {
 	font-weight: bold;
-	-vendor-text-shadow: 1px 1px 0 rgba(255,255,255,0.8), 0 0 15px rgba(0,0,0,0.4);
+	-vendor-text-shadow: 1px 1px 0 rgba(255,255,255,0.4), 0 0 15px rgba(0,0,0,0.4);
 }
 h1
 {
-	font-size: 30px;
+	color: #111;
+	font-size: 25px;
+}
+h2
+{
+	font-size: 20px;
+	padding: 8px 0 10px;
+}
+hr
+{
+	border: 0;
+	border-top: 1px solid rgba(0,0,0,0.3);
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	margin: 10px 0;
+}
+strong
+{
+	font-weight: bold;
+	font-size: 130%;
 }
 #page-container
 {
+	text-align: center;
+	width: 550px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -32px 0 0 -330px;
+	margin: -75px 0 0 -290px;
 	border: 1px rgba(255,255,255,0.3) solid;
-	gradient: rgba(255,255,255,1)_rgba(255,255,255,0.1);
+	gradient: rgba(255,255,255,0.5)_rgba(255,255,255,0.1);
 	-vendor-box-shadow: 0px 0px 15px rgba(0,0,0,0.3), 0px 0px 10px rgba(0,0,0,0.2) inset;
 	padding: 12px 15px;
-	-vendor-border-radius: 15px;
+	-vendor-border-radius: 10px;
 }

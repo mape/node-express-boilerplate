@@ -1,6 +1,13 @@
+if (!window.console) {
+	var console = {
+		'log': function(){}
+		, 'dir': function(){}
+		, 'time': function(){}
+		, 'timeEnd': function(){}
+		, 'profile': function(){}
+		, 'profileEnd': function(){}
+	}
+}
 (function ($) {
 	$('body').removeClass('nojs');
-	setInterval(function () {
-		$('h1').text(new Date().toString());
-	}, 500);
 })(jQuery.noConflict());

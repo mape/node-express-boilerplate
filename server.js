@@ -2,6 +2,7 @@ var connect = require('connect');
 var assetManager = require('connect-assetmanager');
 var assetHandler = require('connect-assetmanager-handlers');
 var express = require('express');
+var fs = require('fs');
 
 process.title = 'node-express-boilerplate';
 process.addListener('uncaughtException', function (err, stack) {
@@ -16,6 +17,7 @@ var assets = assetManager({
 		, 'dataType': 'js'
 		, 'files': [
 			'jquery.js'
+			, '*'
 			, 'jquery.client.js'
 			, 'jquery.reload.js'
 		]
@@ -24,7 +26,11 @@ var assets = assetManager({
 		}
 		, 'postManipulate': {
 			'^': [
-				assetHandler.uglifyJsOptimize
+				function (file, path, index, isLast, callback) {
+					// Enables live JS editing auto reload.
+					callback(file);
+					lastChangedContent = Date.now();
+				}
 			]
 		}
 	}, 'css': {
@@ -33,17 +39,10 @@ var assets = assetManager({
 		, 'dataType': 'css'
 		, 'files': [
 			'reset.css'
+			, '*'
 			, 'client.css'
 		]
 		, 'preManipulate': {
-			/*'MSIE': [
-				assetHandler.yuiCssOptimize
-				, assetHandler.fixVendorPrefixes
-				, assetHandler.fixGradients
-				, assetHandler.stripDataUrlsPrefix
-				, assetHandler.fixFloatDoubleMargin
-			]
-			, */
 			'^': [
 				 assetHandler.fixVendorPrefixes
 				, assetHandler.fixGradients
@@ -53,9 +52,7 @@ var assets = assetManager({
 		, 'postManipulate': {
 			'^': [
 				function (file, path, index, isLast, callback) {
-					// Notifies the browser to refresh the CSS.
-					// This enables coupled with jquery.reload.js 
-					// enables live CSS editing without reload.
+					// Enables live CSS editing without reload.
 					callback(file);
 					lastChangedCss = Date.now();
 				}
@@ -73,7 +70,6 @@ app.configure(function() {
 
 app.configure(function() {
 	app.use(connect.conditionalGet());
-	app.use(connect.gzip());
 	app.use(connect.bodyDecoder());
 	app.use(connect.logger());
 	app.use(assets);
@@ -82,40 +78,80 @@ app.configure(function() {
 
 app.configure('development', function() {
 	app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
-});
 
-app.dynamicHelpers({
-	cacheTimeStamps: function(req, res) {
-		return assets.cacheTimestamps;
-	}
-});
+	// Set as global to allow assetmaanger to change
+	lastChangedContent = 0;
+	lastChangedCss = 0;
+	var path = false;
+	app.get('/reload-content/', function(req, res) {
+		var timeoutCss;
+		var timeoutContent;
+		var timeoutPath;
+		var reloadCss = lastChangedCss;
+		var reloadContent = lastChangedContent;
+		(function reload () {
+			timeoutContent = setTimeout(function () {
+				if (reloadContent < lastChangedContent) {
+					reloadContent = lastChangedContent;
+					res.send('content');
+					reset();
+				} else {
+					reload();
+				}
+			}, 100);
+		})();
+		(function reload () {
+			timeoutCss = setTimeout(function () {
+				if (reloadCss < lastChangedCss) {
+					reloadCss = lastChangedCss;
+					res.send('css');
+					reset();
+				} else {
+					reload();
+				}
+			}, 100);
+		})();
+		(function reload () {
+			timeoutPath = setTimeout(function () {
+				if (path) {
+					res.send(path);
+					reset();
+				} else {
+					reload();
+				}
+			}, 100);
+		})();
 
-app.get('/', function(req, res) {
-	res.render('index', {
-		locals: {
-			'date': new Date().toString()
+		function reset() {
+			if (timeoutCss) {
+				clearTimeout(timeoutCss);
+			}
+			if (timeoutCss) {
+				clearTimeout(timeoutPath);
+			}
+			if (timeoutContent) {
+				clearTimeout(timeoutContent);
+			}
 		}
 	});
-});
 
-app.post('/', function(req, res) {
-	console.log(req.body);
-	res.send('post');
-});
+	app.post('/reload-content/', function(req, res) {
+		if (req.body.path) {
+			path = req.body.path;
+			setTimeout(function() {
+				path = null;
+			}, 1000);
+		}
+		res.send('');
+	});
 
-var lastChangedCss = 0;
-app.get('/reload/', function(req, res) {
-	var reloadCss = lastChangedCss;
-	(function reload () {
-		setTimeout(function () {
-			if ( reloadCss < lastChangedCss) {
-				res.send('reload');
-				reloadCss = lastChangedCss;
-			} else {
-				reload();
-			}
-		}, 100);
-	})();
+    fs.readdir(app.settings.views, function(err, files) {
+		files.forEach(function(file) {
+			fs.watchFile(app.settings.views+'/'+file, function (old, newFile) {
+				if (old.mtime.toString() != newFile.mtime.toString()) {
+					lastChangedContent = Date.now();
+				}
+			});
+		});
+	});
 });
-
-app.listen(80);
