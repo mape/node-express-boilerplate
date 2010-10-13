@@ -1,0 +1,460 @@
+/*
+	Button CSS from: http://github.com/ubuwaits/css3-buttons
+*/
+/* general styles */
+body {
+  text-rendering: optimizeLegibility;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  border:0;
+}
+
+/* minimal
+*******************************************************************************/
+button.minimal {
+  background: #e3e3e3;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  color: #333;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 8px 0 9px;
+  text-align: center;
+  text-shadow: 0 1px 0px #fff;
+  width: 150px;
+}
+
+button.minimal:hover {
+  background: #d9d9d9;
+  box-shadow: inset 0 0 1px 1px #eaeaea;
+  -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
+  -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+  color: #222;
+}
+
+button.minimal:active {
+  background: #d0d0d0;
+  box-shadow: inset 0 0 1px 1px #e3e3e3;
+  -moz-box-shadow: inset 0 0 1px 1px #e3e3e3;
+  -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
+  color: #000;
+}
+
+/* clean gray
+*******************************************************************************/
+button.clean-gray {
+  background: #eee;
+  background: -moz-linear-gradient(0% 100% 90deg, #bfbfbf, #eee);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bfbfbf));
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: inset 0 0 5px #f5f5f5;
+  -moz-box-shadow: inset 0 0 5px #f5f5f5;
+  -webkit-box-shadow: inset 0 0 5px #f5f5f5;
+  color: #333;
+  font-family: "lucida grande", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 8px 0;
+  text-align: center;
+  text-shadow: 0 1px 0px #eee;
+  width: 150px;
+}
+
+button.clean-gray:hover {
+  background: #dfdfdf;
+  background: -moz-linear-gradient(0% 100% 90deg, #aaa, #dfdfdf);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dfdfdf), to(#aaa));
+  box-shadow: inset 0 0 5px #e5e5e5;
+  -moz-box-shadow: inset 0 0 5px #e5e5e5;
+  -webkit-box-shadow: inset 0 0 5px #e5e5e5;
+}
+
+button.clean-gray:active {
+  background: #bfbfbf;
+  background: -moz-linear-gradient(0% 100% 90deg, #eee, #bfbfbf);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bfbfbf), to(#eee));
+}
+
+/* clean green (inspired by okcupid.com)
+*******************************************************************************/
+button.clean-green {
+  background: #7fbf4d;
+  background: -moz-linear-gradient(0% 100% 90deg,#63a62f, #7fbf4d);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7fbf4d), to(#63a62f));
+  border: 1px solid #63a62f;
+  border-width: 1px 1px 0 1px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  box-shadow: inset 0 1px 0 0 #96ca6d;
+  -moz-box-shadow: inset 0 1px 0 0 #96ca6d;
+  -webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
+  color: #fff;
+  font-family: "lucida grande", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 7px 0 8px 0;
+  text-align: center;
+  text-shadow: 0 -1px 0 #4c9021;
+  width: 150px;
+}
+
+button.clean-green:hover {
+  background: #5a962c;
+  background: -moz-linear-gradient(0% 100% 90deg,#5a962c, #72ac45);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#72ac45), to(#5a962c));
+}
+
+button.clean-green:active {
+  background: #7fbf4d;
+  background: -moz-linear-gradient(0% 100% 90deg,#7fbf4d, #63a62f);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#63a62f), to(#7fbf4d));
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border-width: 0 1px 1px 1px;
+  padding: 8px 0 7px 0;
+}
+
+/* pale blue (inspired by okcupid.com)
+*******************************************************************************/
+button.pale-blue {
+  background: #e7eef5;
+  border: 1px solid #becfe3;
+  border-radius: 16px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  box-shadow: inset 0 1px 0 0 #fff;
+  -moz-box-shadow: inset 0 1px 0 0 #fff;
+  -webkit-box-shadow: inset 0 1px 0 0 #fff;
+  color: #2a65a6;
+  font-family: "lucida grande", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 5px 0 6px 0;
+  text-align: center;
+  width: 150px;
+}
+
+button.pale-blue:hover {
+  color: #6f8cc0;
+}
+
+button.pale-blue:active {
+  border: 1px solid #8c98a7;
+  color: #6f8cc0;
+}
+
+/* blue pill (inspired by iTunes)
+   As of 19 Sep 2010 there is a bug in Chrome/Win affecting this button:
+   http://code.google.com/p/chromium/issues/detail?id=29427
+*******************************************************************************/
+button.blue-pill {
+  background: #64799e;
+  background: -moz-linear-gradient(0% 100% 90deg, #64799e, #a5b8da);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#a5b8da), to(#64799e));
+  border: 1px solid #7089b3;
+  border-radius: 18px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  box-shadow: inset 0 1px 0 0 #b4c9ed;
+  -moz-box-shadow: inset 0 1px 0 0 #b4c9ed;
+  -webkit-box-shadow: inset 0 1px 0 0 #b4c9ed;
+  color: #2b3951;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 8px 0 8px 0;
+  text-align: center;
+  text-shadow: 0 1px 0 #99b9f2;
+  text-transform: uppercase;
+  width: 150px;
+}
+
+button.blue-pill:hover {
+  background: #576989;
+  background: -moz-linear-gradient(0% 100% 90deg, #576989, #9eb0d1);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9eb0d1), to(#576989));
+}
+
+button.blue-pill:active {
+  background: #a5b8da;
+  background: -moz-linear-gradient(0% 100% 90deg, #a5b8da, #64799e);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#64799e), to(#a5b8da));
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/* dribbble (inspired by dribbble.com)
+*******************************************************************************/
+button.dribbble {
+  background: #F26895;
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#F26895), to(#F15587));
+  background: -moz-linear-gradient(0% 100% 90deg, #F15587 0%, #F15587 50%, #F26895 50%, #F26895 100%);
+  border: 0;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  color: #fcfcfc;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 10px 0 12px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(104, 45, 64, .7);
+  width: 150px;
+}
+
+button.dribbble:hover {
+  background: #e2558b;
+  background: -moz-linear-gradient(0% 100% 90deg, #df3e7b 0%, #df3e7b 50%, #e2558b 50%, #e2558b 100%);
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#e2558b), to(#df3e7b));
+}
+
+button.dribbble:active {
+  background: #c94477;
+  background: -moz-linear-gradient(0% 100% 90deg, #c22b65 0%, #c22b65 50%, #c94477 50%, #c94477 100%);
+  background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#c94477), to(#c22b65));
+}
+
+/* slick black
+*******************************************************************************/
+button.slick-black {
+  background: #111;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(20, 20, 20, 0.9) 50%,
+              rgba(30, 30, 30, 0.9) 50%,
+              rgba(50, 50, 50, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(50, 50, 50, 0.9)),
+              color-stop(0.5, rgba(30, 30, 30, 0.9)),
+              color-stop(0.5, rgba(20, 20, 20, 0.9)),
+              color-stop(1, rgba(0, 0, 0, 0.9)));
+  border: 0;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  -moz-box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  -webkit-box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  color: #fff;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 22px;
+  font-weight: lighter;
+  line-height: 1;
+  padding: 12px 0;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, .8), 0 1px 1px rgba(255, 255, 255, 0.3);
+  width: 150px;
+}
+
+button.slick-black:hover {
+  background: #222;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(20, 20, 20, 0.9) 0%,
+              rgba(40, 40, 40, 0.9) 50%,
+              rgba(50, 50, 50, 0.9) 50%,
+              rgba(70, 70, 70, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(70, 70, 70, 0.9)),
+              color-stop(0.5, rgba(50, 50, 50, 0.9)),
+              color-stop(0.5, rgba(40, 40, 40, 0.9)),
+              color-stop(1, rgba(20, 20, 20, 0.9)));
+}
+
+button.slick-black:active {
+  background: #000;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(10, 10, 10, 0.9) 50%,
+              rgba(20, 20, 20, 0.9) 50%,
+              rgba(30, 30, 30, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(30, 30, 30, 0.9)),
+              color-stop(0.5, rgba(20, 20, 20, 0.9)),
+              color-stop(0.5, rgba(10, 10, 10, 0.9)),
+              color-stop(1, rgba(0, 0, 0, 0.9)));
+}
+
+/* thoughtbot (inspired by thoughtbot.com)
+*******************************************************************************/
+button.thoughtbot {
+  background: #c63929;
+  background: -moz-linear-gradient(0% 100% 90deg, #891100 0%, #B51700 50%, #c63929 50%, #EE432E 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ee432e), color-stop(0.5, #c63929), color-stop(0.5, #b51700), color-stop(1, #891100));
+  border: 1px solid #951100;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
+  color: #fff;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding: 12px 0 14px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, .8);
+  width: 150px;
+}
+
+button.thoughtbot:hover {
+  background: #cb0500;
+  background: -moz-linear-gradient(0% 100% 90deg, #a20601 0%, #cb0500 50%, #db504d 50%, #f37873 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601));
+}
+
+button.thoughtbot:active {
+  background: #b30300;
+  background: -moz-linear-gradient(0% 100% 90deg, #700d00 0%, #9c1500 50%, #ad3224 50%, #d43c28 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00));
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+}
+
+/* fat blue
+*******************************************************************************/
+button.fat-blue {
+  background: #4162a8;
+  border: 1px solid #19253f;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+  -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+  -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+  color: #fff;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10px;
+  padding: 10px 0 12px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, .8);
+  width: 150px;
+}
+
+button.fat-blue:hover {
+  box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+  -moz-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+  -webkit-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111;
+}
+
+button.fat-blue:active {
+  background: #395591;
+  box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+  -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+  -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+  margin-top: 58px;
+}
+
+/* iconic: check-alt
+*******************************************************************************/
+button.check-alt {
+  padding-right: 14px;
+}
+
+button.check-alt:before {
+  color: #333;
+  content: "Y";
+  display: inline;
+  font-size: 18px;
+  font-family: "IconicStroke";
+  font-weight: normal;
+  position: relative;
+  left: -16px;
+  line-height: 10px;
+	text-shadow: 0 1px 0px #fff;
+  top: 2px;
+  visibility: hidden;
+}
+
+button.check-alt:hover:before {
+  visibility: visible;
+}
+
+button.check-alt:active:before {
+  color: #0589C8;
+}
+
+/* iconic: heart
+*******************************************************************************/
+button.heart {
+  padding-right: 25px;
+}
+
+button.heart:before {
+  color: #fff;
+  content: "h";
+  font-size: 32px;
+  font-family: "IconicStroke";
+  font-weight: normal;
+  position: relative;
+  left: -16px;
+  line-height: 10px;
+	text-shadow: 0px -1px 1px rgba(104, 45, 64, .7);
+  top: 6px;
+  visibility: hidden;
+}
+
+button.heart:hover:before {
+  visibility: visible;
+}
+
+button.heart:active:before {
+  text-shadow: 0px -1px 10px rgba(104, 45, 64, 1);
+}
+
+/* iconic: chat
+*******************************************************************************/
+button.chat {
+  padding-right: 20px;
+}
+
+button.chat:before {
+  color: #fff;
+  content: "j";
+  font-size: 20px;
+  font-family: "IconicStroke";
+  font-weight: normal;
+  position: relative;
+  left: -13px;
+  line-height: 10px;
+	text-shadow: 0px -1px 1px rgba(104, 45, 64, .7);
+  top: 2px;
+  visibility: hidden;
+}
+
+button.chat:hover:before {
+  visibility: visible;
+}
+
+button.chat:active:before {
+  text-shadow: 0px -1px 10px rgba(104, 45, 64, 1);
+}

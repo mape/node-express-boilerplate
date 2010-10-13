@@ -41,7 +41,7 @@ var assets = assetManager({
 			'reset.css'
 			, '*'
 			, 'client.css'
-			, 'frontend-devel.css'
+			, 'frontend-development.css'
 		]
 		, 'preManipulate': {
 			'^': [
