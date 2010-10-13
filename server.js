@@ -19,7 +19,7 @@ var assets = assetManager({
 			'jquery.js'
 			, '*'
 			, 'jquery.client.js'
-			, 'jquery.reload.js'
+			, 'jquery.frontend-development.js'
 		]
 		, 'preManipulate': {
 			'^': []
@@ -41,6 +41,7 @@ var assets = assetManager({
 			'reset.css'
 			, '*'
 			, 'client.css'
+			, 'frontend-devel.css'
 		]
 		, 'preManipulate': {
 			'^': [
@@ -74,6 +75,12 @@ app.configure(function() {
 	app.use(connect.logger());
 	app.use(assets);
 	app.use(connect.staticProvider(__dirname + '/public'));
+});
+
+app.dynamicHelpers({
+	cacheTimeStamps: function(req, res) {
+		return assets.cacheTimestamps;
+	}
 });
 
 app.configure('development', function() {
@@ -153,5 +160,19 @@ app.configure('development', function() {
 				}
 			});
 		});
-	});
+    });
 });
+app.get('/', function(req, res) {
+       res.render('index', {
+               locals: {
+                       'date': new Date().toString()
+}
+      });
+});
+app.get('/1/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+app.get('/2/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+app.get('/3/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+app.get('/4/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+app.get('/5/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+
+app.listen(666);
