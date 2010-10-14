@@ -73,16 +73,19 @@ var doReload = true;
 						} else {
 							$validate.html(originSrc).addClass('bad');
 							var $errorContainer = $('<ul id="frontend-development-validation-errors"/>').appendTo('html').hide();
+							var count;
 							$(html).find('li.error').each(function(index) {
 								$errorContainer.append('<li>'+$(this).html()+'</li>')
+								count = index+1;
 							});
-
+							$validate.append('<div class="validation-errors">'+count+'</div>');
 							$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
 							pulseInterval = setInterval(function() {
 								$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
 							}, 1000);
 
 							$validate.bind('click', function() {
+								$('.validation-errors').remove();
 								clearInterval(pulseInterval);
 								$errorContainer.show();
 								$validate.unbind('click');

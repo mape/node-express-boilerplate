@@ -40,7 +40,7 @@ body
 #frontend-development > div.bad
 {
 	color: #fff;
-	gradient: #ab0307_#c40206;
+	gradient: #910306_#7b0306;
 	border: 1px solid #7e0003;
 }
 #frontend-development .loading
@@ -57,13 +57,14 @@ body
 {
 	font-family: arial;
 	position: fixed;
-	top: 0;
+	top: -2px;
+	bottom: -2px;
+	overflow: auto;
 	right: 40px;
 	background: #222;
 	-vendor-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
 	color: #fff;
-	-vendor-border-radius: 0 0 0 20px;
-	padding: 10px;
+	padding: 12px 10px;
 	font-size: 12px;
 }
 #frontend-development-validation-errors li
@@ -111,9 +112,31 @@ body
 	padding: 5px 10px;
 	background: rgba(0,0,0,0.1);
 	color: #666;
+	line-height: 1.9;
 	-vendor-border-radius: 5px;
 }
 #frontend-development-validation-errors .extract b
 {
 	color: #fff !important;
+}
+.validation-errors
+{
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	line-height: 1;
+	color: #fff;
+	gradient: #ab0307_#c40206;
+	border: 1px solid #7e0003;
+	-vendor-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
+	-vendor-border-radius: 5px;
+	font-size: 10px;
+	font-weight: bold;
+	width: 17px;
+	height: 17px;
+	display: block;
+	line-height: 17px;
+	text-align: center;
+	cursor: pointer;
+	margin: -9px -4px 0 0;
 }

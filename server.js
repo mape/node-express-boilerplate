@@ -153,21 +153,34 @@ app.configure('development', function() {
 	});
 	
 	var exec  = require('child_process').exec;
+	var crypto = require('crypto');
+	var validateCache = {};
+	function getValidationSource(filePath, source, res, cacheKey) {
+		fs.writeFile(filePath, source, function (err) {
+			exec('curl -F "content=<'+filePath+';type=text/html" -F "showsource=no" http://validator.mape.me', function (error, stdout, stderr) {
+				if (stdout.indexOf('There were errors') === -1) {
+					validateCache[cacheKey] = 'ok';
+					res.send('ok');
+				} else {
+					validateCache[cacheKey] = stdout;
+					res.send(stdout);
+				}
+				fs.unlink(filePath, function() {});
+			});
+		});
+	}
 	app.post('/validate-content/', function(req, res) {
 		if (req.body.source) {
-			var filePath = '/tmp/'+Date.now()+'.tmp';
-			fs.writeFile(filePath, req.body.source, function (err) {
-				exec('curl -F "content=<'+filePath+';type=text/html" -F "showsource=no" http://validator.nu', function (error, stdout, stderr) {
-					if (stdout.indexOf('There were errors') === -1) {
-						res.send('ok');
-					} else {
-						res.send(stdout);
-					}
-					fs.unlink(filePath, function() {});
-				});
-			});
+			var cacheKey = crypto.createHash('md5').update(req.body.source).digest('hex');
+
+			if (validateCache[cacheKey] === undefined) {
+				var filePath = '/tmp/'+Date.now()+'.tmp';
+				getValidationSource(filePath, req.body.source, res, cacheKey);
+			} else {
+				res.send(validateCache[cacheKey]);
+			}
 		} else {
-			res.send('{"status":false}');
+			res.send('nope');
 		}
 	});
 
