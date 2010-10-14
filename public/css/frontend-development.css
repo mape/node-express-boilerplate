@@ -101,7 +101,7 @@ body
 }
 #frontend-development-validation-errors .location
 {
-	padding: 5px 10px;
+	padding: 10px;
 	color: #fff;
 	-vendor-border-radius: 5px;
 }
@@ -109,5 +109,11 @@ body
 {
 	font-weight: bold;
 	padding: 5px 10px;
-	color: #888;
+	background: rgba(0,0,0,0.1);
+	color: #666;
+	-vendor-border-radius: 5px;
+}
+#frontend-development-validation-errors .extract b
+{
+	color: #fff !important;
 }
