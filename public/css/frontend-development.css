@@ -10,11 +10,11 @@ body
 	width: 24px;
 	bottom: -2px;
 	background: #222;
-	-vendor-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
+	-vendor-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
 	font-family: arial;
 	padding: 10px 8px;
 }
-#frontend-development .refresh
+#frontend-development > div
 {
 	color: #fff;
 	gradient: #292929_#111;
@@ -28,4 +28,71 @@ body
 	line-height: 24px;
 	text-align: center;
 	cursor: pointer;
+	margin: 0 0 5px;
+	position: relative;
+}
+#frontend-development > div.ok
+{
+	color: #fff;
+	gradient: #029b02_#027402;
+	border: 1px solid #026302;
+}
+#frontend-development > div.bad
+{
+	color: #fff;
+	gradient: #ab0307_#c40206;
+	border: 1px solid #7e0003;
+}
+#frontend-development .loading
+{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -8px 0 0 -8px;
+	background: data-url(/img/frontend-development/ajax-loading.gif);
+}
+#frontend-development-validation-errors
+{
+	font-family: arial;
+	position: fixed;
+	top: 0;
+	right: 40px;
+	background: #222;
+	-vendor-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
+	color: #fff;
+	-vendor-border-radius: 0 0 0 20px;
+	padding: 10px;
+	font-size: 12px;
+}
+#frontend-development-validation-errors li
+{
+	list-style: none;
+}
+#frontend-development-validation-errors ul
+{
+	padding: 10px 15px 5px;
+}
+#frontend-development-validation-errors .err_type
+{
+	background: rgba(0,0,0,0.4);
+	display: block;
+	padding: 5px 10px;
+	-vendor-border-radius: 5px;
+}
+#frontend-development-validation-errors em
+{
+	color: #f8ff8c;
+	font-weight: bold;
+}
+#frontend-development-validation-errors code
+{
+	padding: 5px 5px;
+	display: block;
+	color: #888;
+	margin: 5px 0 0;
+	white-space: normal;
+	-vendor-border-radius: 5px;
+	background: rgba(0,0,0,0.4);
 }

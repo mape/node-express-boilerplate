@@ -4,22 +4,22 @@ var doReload = true;
 	function doMoveAjax(url) {
 		if (url) {
 			$.ajax({
-				'url': '/reload-content/',
-				'data': {
+				'url': '/reload-content/'
+				, 'data': {
 					'path': url
-				},
-				'type': 'post',
-				'cache': false,
-				'success': function (text) {
-					$('.refresh').fadeTo(200, 0.2).fadeTo(200, 1).fadeTo(200, 0.2).fadeTo(200, 1);
+				}
+				, 'type': 'post'
+				, 'cache': false
+				, 'success': function (text) {
+					$('.sync').fadeTo(200, 0.2).fadeTo(200, 1).fadeTo(200, 0.2).fadeTo(200, 1);
 				}
 			});
 		}
 	}(function reload($) {
 		$.ajax({
-			'url': '/reload-content/',
-			'cache': false,
-			'success': function (text) {
+			'url': '/reload-content/'
+			, 'cache': false
+			, 'success': function (text) {
 				if (text === 'css') {
 					$('link').each(function (index) {
 						$(this).attr('href', $(this).attr('href').replace(/[0-9]+/, new Date().getTime()));
@@ -34,8 +34,8 @@ var doReload = true;
 						window.location = text;
 					}
 				}
-			},
-			'complete': function () {
+			}
+			, 'complete': function () {
 				setTimeout(function () {
 					if (doReload) {
 						reload($);
@@ -45,10 +45,43 @@ var doReload = true;
 		});
 	})($);
 	var $toolbar = $('<div id="frontend-development"></div>').appendTo('html');
-	$('a').live('click', function (event) {
-		doMoveAjax($(this).attr('href'));
-	});
-	var $refresh = $('<div class="refresh">R</div>').click(function (event) {
+
+	var $refresh = $('<div title="Sync all browsers to this page" class="sync">S</div>').click(function (event) {
 		doMoveAjax(currentPath);
+	}).appendTo($toolbar);
+
+	var $validate = $('<div title="Validate html" class="validate">V</div>').click(function (event) {
+		if ($(this).is('.ok,.bad')) {
+			return false;
+		}
+		var originSrc = $(this).html();
+		$validate.html('<div class="loading"></div>');
+		$.ajax({
+			'cache': false
+			, 'success': function (html) {
+				$.ajax({
+					'url': '/validate-content/'
+					, 'type': 'post'
+					, 'cache': false
+					, 'dataType': 'text'
+					, 'data': {
+						'source': html
+					}
+					, 'success': function (text) {
+						if (text === 'ok') {
+							$validate.html(originSrc).addClass('ok');
+						} else {
+							$validate.html(originSrc).addClass('bad');
+							var $errorContainer = $('<ul id="frontend-development-validation-errors"/>').html($(text).find('#error_loop').html()).appendTo('html');
+							$errorContainer.find('.helpwanted').remove();
+							$errorContainer.find('.err_type').text('Errors');
+							$validate.click(function() {
+								$errorContainer.remove();
+							});
+						}
+					}
+				});
+			}
+		});
 	}).appendTo($toolbar);
 })(jQuery);

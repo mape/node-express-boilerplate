@@ -151,6 +151,25 @@ app.configure('development', function() {
 		}
 		res.send('');
 	});
+	
+	var exec  = require('child_process').exec;
+	app.post('/validate-content/', function(req, res) {
+		if (req.body.source) {
+			var filePath = '/tmp/'+Date.now()+'.tmp';
+			fs.writeFile(filePath, req.body.source, function (err) {
+				exec('curl -F "fragment=<'+filePath+';type=text/html" -F "group=1" -F "doctype=Inline" -F "user-agent=W3C_Validator/1.1" -F "charset=(detect automatically)" http://validator.w3.org/check', function (error, stdout, stderr) {
+					if (stdout.indexOf('error_loop') === -1) {
+						res.send('ok');
+					} else {
+						res.send(stdout);
+					}
+					fs.unlink(filePath, function() {});
+				});
+			});
+		} else {
+			res.send('{"status":false}');
+		}
+	});
 
     fs.readdir(app.settings.views, function(err, files) {
 		files.forEach(function(file) {
@@ -163,16 +182,20 @@ app.configure('development', function() {
     });
 });
 app.get('/', function(req, res) {
-       res.render('index', {
-               locals: {
-                       'date': new Date().toString()
-}
-      });
+	res.render('index', {
+		locals: {
+			'page': '/'
+			, 'date': new Date().toString()
+		}
+	});
 });
-app.get('/1/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
-app.get('/2/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
-app.get('/3/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
-app.get('/4/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
-app.get('/5/', function(req, res) {res.render('index', {locals:{'date':new Date().toString()}});});
+app.get('/1/', function(req, res) {res.render('index', {locals:{'page': '/1/', 'date': new Date().toString()}});});
+app.get('/2/', function(req, res) {res.render('index', {locals:{'page': '/2/', 'date': new Date().toString()}});});
+app.get('/3/', function(req, res) {res.render('index', {locals:{'page': '/3/', 'date': new Date().toString()}});});
+app.get('/4/', function(req, res) {res.render('index', {locals:{'page': '/4/', 'date': new Date().toString()}});});
+app.get('/5/', function(req, res) {res.render('index', {locals:{'page': '/5/', 'date': new Date().toString()}});});
+app.get('/6/', function(req, res) {res.render('index', {locals:{'page': '/6/', 'date': new Date().toString()}});});
+app.get('/7/', function(req, res) {res.render('index', {locals:{'page': '/7/', 'date': new Date().toString()}});});
+app.get('/8/', function(req, res) {res.render('index', {locals:{'page': '/8/', 'date': new Date().toString()}});});
 
 app.listen(666);
