@@ -157,8 +157,8 @@ app.configure('development', function() {
 		if (req.body.source) {
 			var filePath = '/tmp/'+Date.now()+'.tmp';
 			fs.writeFile(filePath, req.body.source, function (err) {
-				exec('curl -F "fragment=<'+filePath+';type=text/html" -F "group=1" -F "doctype=Inline" -F "user-agent=W3C_Validator/1.1" -F "charset=(detect automatically)" http://validator.w3.org/check', function (error, stdout, stderr) {
-					if (stdout.indexOf('error_loop') === -1) {
+				exec('curl -F "content=<'+filePath+';type=text/html" -F "showsource=no" http://validator.nu', function (error, stdout, stderr) {
+					if (stdout.indexOf('There were errors') === -1) {
 						res.send('ok');
 					} else {
 						res.send(stdout);

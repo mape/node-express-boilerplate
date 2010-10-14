@@ -51,11 +51,9 @@ var doReload = true;
 	}).appendTo($toolbar);
 
 	var $validate = $('<div title="Validate html" class="validate">V</div>').click(function (event) {
-		if ($(this).is('.ok,.bad')) {
-			return false;
-		}
 		var originSrc = $(this).html();
 		$validate.html('<div class="loading"></div>');
+		var pulseInterval;
 		$.ajax({
 			'cache': false
 			, 'success': function (html) {
@@ -67,21 +65,36 @@ var doReload = true;
 					, 'data': {
 						'source': html
 					}
-					, 'success': function (text) {
-						if (text === 'ok') {
+					, 'success': function (html) {
+						$validate.unbind('click');
+
+						if (html === 'ok') {
 							$validate.html(originSrc).addClass('ok');
 						} else {
 							$validate.html(originSrc).addClass('bad');
-							var $errorContainer = $('<ul id="frontend-development-validation-errors"/>').html($(text).find('#error_loop').html()).appendTo('html');
-							$errorContainer.find('.helpwanted').remove();
-							$errorContainer.find('.err_type').text('Errors');
-							$validate.click(function() {
-								$errorContainer.remove();
+							var $errorContainer = $('<ul id="frontend-development-validation-errors"/>').appendTo('html').hide();
+							$(html).find('li.error').each(function(index) {
+								$errorContainer.append('<li>'+$(this).html()+'</li>')
+							});
+
+							$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
+							pulseInterval = setInterval(function() {
+								$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
+							}, 1000);
+
+							$validate.bind('click', function() {
+								clearInterval(pulseInterval);
+								$errorContainer.show();
+								$validate.unbind('click');
+								$validate.bind('click', function() {
+									$errorContainer.remove();
+								});
 							});
 						}
 					}
 				});
 			}
 		});
-	}).appendTo($toolbar);
+	}).appendTo($toolbar)
+	$validate.click();
 })(jQuery);

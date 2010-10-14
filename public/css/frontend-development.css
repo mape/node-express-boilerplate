@@ -81,18 +81,33 @@ body
 	padding: 5px 10px;
 	-vendor-border-radius: 5px;
 }
-#frontend-development-validation-errors em
+#frontend-development-validation-errors a
 {
-	color: #f8ff8c;
-	font-weight: bold;
+	text-decoration: underline;
 }
-#frontend-development-validation-errors code
+#frontend-development-validation-errors li p:first-child
 {
 	padding: 5px 5px;
 	display: block;
-	color: #888;
+	color: #f8ff8c;
 	margin: 5px 0 0;
 	white-space: normal;
 	-vendor-border-radius: 5px;
 	background: rgba(0,0,0,0.4);
+}
+#frontend-development-validation-errors li p:first-child a
+{
+	color: #f8ff8c;
+}
+#frontend-development-validation-errors .location
+{
+	padding: 5px 10px;
+	color: #fff;
+	-vendor-border-radius: 5px;
+}
+#frontend-development-validation-errors .extract code
+{
+	font-weight: bold;
+	padding: 5px 10px;
+	color: #888;
 }
