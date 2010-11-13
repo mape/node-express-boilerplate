@@ -15,7 +15,8 @@ var doReload = true;
 				}
 			});
 		}
-	}(function reload($) {
+	}
+	(function reload($) {
 		$.ajax({
 			'url': '/reload-content/'
 			, 'cache': false
@@ -44,7 +45,7 @@ var doReload = true;
 			}
 		});
 	})($);
-	var $toolbar = $('<div id="frontend-development"></div>').appendTo('html');
+	var $toolbar = $('<div id="frontend-development"></div>').appendTo('body');
 
 	var $refresh = $('<div title="Sync all browsers to this page" class="sync">S</div>').click(function (event) {
 		doMoveAjax(currentPath);
@@ -75,10 +76,13 @@ var doReload = true;
 							var $errorContainer = $('<ul id="frontend-development-validation-errors"/>').appendTo('html').hide();
 							var count;
 							$(html).find('li.error').each(function(index) {
-								$errorContainer.append('<li>'+$(this).html()+'</li>')
+								$errorContainer.append('<li>'+$(this).html()+'</li>');
 								count = index+1;
 							});
-							$validate.append('<div class="validation-errors">'+count+'</div>');
+							if (count === undefined) {
+								return;
+							}
+							$validate.append('<div class="validation-errors">'+(count || '')+'</div>');
 							$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
 							pulseInterval = setInterval(function() {
 								$validate.stop().animate({'opacity': 0.3}, 500).animate({'opacity': 1}, 500);
@@ -98,6 +102,23 @@ var doReload = true;
 				});
 			}
 		});
-	}).appendTo($toolbar)
+	}).appendTo($toolbar);
 	$validate.click();
+	
+	var $overlay = $('#dummy-overlay');
+	if ($overlay.length) {
+		if ($overlay.attr('style').match(/-center/)) {
+			$overlay.addClass('center');
+		}
+		$('html').live('click', function(event) {
+			if (toggleAnimation) {
+				clearInterval(toggleAnimation);
+			}
+			$overlay.toggle();
+		});
+		$overlay.stop().fadeTo(500, 0).fadeTo(500, 1);
+		var toggleAnimation = setInterval(function() {
+			$overlay.stop().fadeTo(500, 0).fadeTo(500, 1);
+		}, 1000);
+	}
 })(jQuery);

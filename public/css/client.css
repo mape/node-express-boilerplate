@@ -8,13 +8,13 @@
 html
 {
 	height: 100%;
-	gradient: #222_#555;
+	gradient: purple_yellow;
 }
 body
 {
 	height: 100%;
 	-vendor-box-sizing: border-box;
-	background: url(/img/bg.png);
+	background: data-url(/img/bg.png);
 	color: #000;
 	margin: 0;
 	font: 12px 'helvetica neue', helvetica, arial, sans-serif;
@@ -36,7 +36,7 @@ h1,h2
 h1
 {
 	color: #111;
-	font-size: 25px;
+	font-size: 27px;
 }
 h2
 {
@@ -81,6 +81,7 @@ li
 {
 	list-style: outside;
 	padding: 5px 0;
+	line-height: 1.4;
 }
 #page-container
 {
@@ -88,7 +89,7 @@ li
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -75px 0 0 -290px;
+	margin: -165px 0 0 -315px;
 	border: 1px rgba(255,255,255,0.3) solid;
 	gradient: rgba(255,255,255,0.5)_rgba(255,255,255,0.1);
 	-vendor-box-shadow: 0px 0px 15px rgba(0,0,0,0.3), 0px 0px 10px rgba(0,0,0,0.2) inset;
@@ -112,5 +113,5 @@ li
 	padding: 0px 10px;
 	display: inline-block;
 	position: relative;
-	margin: 0 0 0 11px;
+	margin: 0 0 0 14px;
 }
