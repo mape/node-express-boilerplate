@@ -1,5 +1,6 @@
 # node-express-boilerplate
-
+## Short video showing the features
+<iframe title="YouTube video player" class="youtube-player" type="text/html" width="900" height="536" src="http://www.youtube.com/embed/esKYgej26dw?ap=%2526fmt%3D22&hd=1" frameborder="0"></iframe>
 ## What does node-express-boilerplate do?
 
 node-express-boilerplate is a collection of neat things that makes prototyping dummy frontend fast and streamlined. No more tab+refreshing to see css, javascript eller markup.
