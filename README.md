@@ -7,6 +7,7 @@
 
 node-express-boilerplate is a collection of neat things that makes prototyping dummy frontend fast and streamlined. No more tab+refreshing to see css, javascript eller markup.
 
+* Bundled with socket.io server and socket.io client files (with flashsocket fallback).
 * Auto updates the CSS without pageload when CSS files change.
 * Auto refreshes the page when markup or javascript files change.
 * Auto matches urls to templates without server changes. Visiting /file-name/ tries to serve file-name.ejs and has fallback to index.ejs.
