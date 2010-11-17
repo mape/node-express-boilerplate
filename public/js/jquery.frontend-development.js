@@ -104,21 +104,40 @@ var doReload = true;
 		});
 	}).appendTo($toolbar);
 	$validate.click();
-	
-	var $overlay = $('#dummy-overlay');
-	if ($overlay.length) {
-		if ($overlay.attr('style').match(/-center/)) {
-			$overlay.addClass('center');
+
+	var $toggleOverlay = $('<div title="Toggle overlay" class="toggle-overlay">O</div>').click(function (event) {
+		if ($.cookie('do') === 'true') {
+			$.cookie('do', 'false', {'path': '/'});
+			window.location.reload(true);
+		} else {
+			$.cookie('do', 'true', {'path': '/'});
+			window.location.reload(true);
 		}
-		$('html').live('click', function(event) {
-			if (toggleAnimation) {
-				clearInterval(toggleAnimation);
+	}).appendTo($toolbar);
+
+	if ($.cookie('do') === 'true') {
+		$toggleOverlay.addClass('bad');
+	} else {
+		$toggleOverlay.addClass('ok');
+	}
+
+	var $overlay = $('#dummy-overlay');
+	if ($.cookie('do') === 'false') {
+		if ($overlay.length) {
+			if ($overlay.attr('style').match(/-center/)) {
+				$overlay.addClass('center');
 			}
-			$overlay.toggle();
-		});
-		$overlay.stop().fadeTo(500, 0).fadeTo(500, 1);
-		var toggleAnimation = setInterval(function() {
-			$overlay.stop().fadeTo(500, 0).fadeTo(500, 1);
-		}, 1000);
+			$('html').live('click', function(event) {
+				if (toggleAnimation) {
+					clearInterval(toggleAnimation);
+				}
+				$overlay.toggle();
+			});
+			var toggleAnimation = setInterval(function() {
+				$overlay.toggle();
+			}, 200);
+		}
+	} else {
+		$overlay.remove();
 	}
 })(jQuery);

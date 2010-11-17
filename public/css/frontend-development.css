@@ -1,48 +1,49 @@
-body
-{
-	margin-right: 40px;
-	position: relative;
-}
 #frontend-development
 {
 	position: fixed;
-	top: -2px;
-	right: 0;
-	width: 24px;
-	bottom: -2px;
-	background: #222;
-	-vendor-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
+	top: 0px;
+	right: 0px;
+	width: 20px;
 	font-family: arial;
-	padding: 10px 8px;
+	padding: 5px 5px 0 4px;
+	border: 1px rgba(255,255,255,0.3) solid;
+	gradient: rgba(255,255,255,0.5)_rgba(255,255,255,0.3);
+	-vendor-box-shadow: 0px 0px 15px rgba(0,0,0,0.7), 0px 0px 10px rgba(0,0,0,0.2) inset;
+	-vendor-border-radius: 0 0 0 5px;
 }
 #frontend-development > div
 {
 	color: #fff;
 	gradient: #292929_#111;
-	border: 1px solid #222;
-	-vendor-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
+	-vendor-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+	border: 1px solid rgba(0,0,0,0.3);
 	-vendor-border-radius: 5px;
+	-vendor-text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 	font-size: 11px;
-	width: 24px;
-	height: 24px;
+	width: 20px;
+	height: 20px;
 	display: block;
-	line-height: 24px;
+	line-height: 20px;
 	text-align: center;
+	font-weight: bold;
 	cursor: pointer;
 	margin: 0 0 5px;
 	position: relative;
+}
+#frontend-development > div:active
+{
+	top: 1px;
+	left: 1px;
 }
 #frontend-development > div.ok
 {
 	color: #fff;
 	gradient: #46c93c_#3cae33;
-	border: 1px solid #1c5d17;
 }
 #frontend-development > div.bad
 {
 	color: #fff;
 	gradient: #910306_#7b0306;
-	border: 1px solid #7e0003;
 }
 #frontend-development .loading
 {
