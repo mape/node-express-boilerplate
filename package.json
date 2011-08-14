@@ -1,16 +1,21 @@
 {
   "name" : "node-express-boilerplate",
-  "description" : "A boilerplate used to quickly get minor projects going. With less configuration.",
+  "description" : "A boilerplate used to quickly get projects going.",
   "version" : "0.0.1",
   "author" : "Mathias Pettersson <mape@mape.me>",
   "engines" : ["node"],
   "repository" : { "type":"git", "url":"http://github.com/mape/node-express-boilerplate" },
   "dependencies" : {
-    "connect" : ">=0.2.7",
-    "connect-assetmanager" : ">=0.0.12",
-    "connect-assetmanager-handlers" : ">=0.0.12",
-    "ejs" : ">=0.2.0",
-    "express" : ">=1.0.0",
-    "socket.io" : ">=0.6.0"
+    "connect" : ">=1.6.0",
+    "connect-assetmanager" : ">=0.0.21",
+    "connect-assetmanager-handlers" : ">=0.0.17",
+    "ejs" : ">=0.4.3",
+    "express" : ">=2.4.3",
+    "socket.io" : ">=0.7.8",
+    "connect-redis" : ">=1.0.7",
+    "connect-notifo" : ">=0.0.1",
+    "airbrake" : ">=0.2.0",
+    "everyauth" : ">=0.2.18",
+    "nodemon" : ">=0.5.3"
   }
 }

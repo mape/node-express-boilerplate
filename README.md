@@ -1,24 +1,45 @@
 # node-express-boilerplate
-## Short video showing the features
-[![Youtube](http://mape.me/node-boilerplate.png "Youtube video")](http://www.youtube.com/watch?v=esKYgej26dw)
 
+node-express-boilerplate gives the developer a clean slate to start with while bundling enough useful features so as to remove all those redundant tasks that can derail a project before it even really gets started.
 
-## What does node-express-boilerplate do?
+## So what does node-express-boilerplate do
 
-node-express-boilerplate is a collection of neat things that makes prototyping dummy frontend fast and streamlined. No more tab+refreshing to see css, javascript eller markup.
+<img src="http://s3.amazonaws.com/files.posterous.com/temp-2011-07-27/aCjCnipkcvcbdcpEcBopytIkxnGHlyiFkcHuwfoknhkJxGkeDJorbcitmcnt/express-boiler.png.scaled500.png?AWSAccessKeyId=AKIAJFZAE65UYRT34AOQ&Expires=1313339089&Signature=L%2F5TL5evSP4KQqWkeZgGVlA9Xs4%3D">
 
-* Bundled with socket.io server and socket.io client files (with flashsocket fallback).
-* Auto updates the CSS without pageload when CSS files change.
-* Auto refreshes the page when markup or javascript files change.
-* Auto matches urls to templates without server changes. Visiting /file-name/ tries to serve file-name.ejs and has fallback to index.ejs.
-* Use the Sync button to redirect all browsers to the current page. This is handy when you want to test the design on multiple browsers and don't want to navigate to the page with each browser.
-* The Validate button shows the current validation status of the current page. If it is green the page validates, if it is red it shows how many errors there are and if you click it you get a list of what errors are present and where they are.
-* Overlay images to have a design reference.
+First of all, it is very easy to understand, allowing you to start using it right away. There is minimal need to dig around in files just to get a good idea of how things work. And if you don't like how the boiler plate is set up, just fork it and change it according to your own personal preferences.
 
-## Requires
-    npm install connect
-    npm install connect-assetmanager
-    npm install connect-assetmanager-handlers
-    npm install express
-    npm install ejs
-    npm install socket.io
+### Features include:
+
+* Bundling [socket.io](http://socket.io/) and integrating with the [express](https://github.com/visionmedia/express) session store so data can be shared
+* Providing premade hooks to [authenticate](https://github.com/bnoguchi/everyauth) users via facebook/twitter/github
+* An [assetmanager](https://github.com/mape/connect-assetmanager/) that concatenates/mangles/compresses your CSS/JS assets to be as small and fast to deliver as possible, as well as cache busting using MD5 hashes
+* Auto updates of the browser (inline/refresh) as soon as CSS/JS/template-files are changed in order to remove all those annoying “save, tab, refresh” repetitions
+* [Notifications](http://notifo.com/) to your computer/mobile phone on certain user actions (This is something I relied heavily on last year when he was involved in NKO; as soon as a new game was started I knew about it and could jump in and interact - nobody enjoys something social if they are stuck there alone.)
+* Sane defaults in regards to productions/development environments
+* Logs errors to [Airbrakeapp.com](http://airbrakeapp.com/pages/home) in order to track any errors users are encountering
+* Auto matching of urls to templates without having to define a specific route (such as, visiting /file-name/ tries to serve file-name.ejs and fallbacks to index.ejs - this is helpful for quick static info pages)
+
+## Install on dev machine
+* git clone https://github.com/mape/node-express-boilerplate myproject
+* cd myproject
+* npm install
+* cp siteConfig.sample.js siteConfig.js
+* mate siteConfig.js # update config for your use case
+* nodemon server.js
+
+## Install on no.de
+* First on node machine
+	* ssh node@yourname.no.de
+	* pkgin update; pkgin install redis
+	* svccfg import /opt/local/share/smf/manifest/redis.xml
+	* svcadm enable redis
+
+* Then on local machine
+	* git clone [http://github.com/mape/node-express-boilerplate](http://github.com/mape/node-express-boilerplate) myproject
+	* cd myproject
+	* cp siteConfig.sample.js siteConfig.js
+	* edit siteConfig.js settings
+	* scp siteConfig.js node@yourname.no.de:~
+	* git remote add joyent node@yourname.no.de:repo
+	* git push joyent master
+	* open http://yourname.no.de

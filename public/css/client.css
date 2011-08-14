@@ -1,117 +1,147 @@
-::-moz-selection {
-	background-color: rgba(0,0,0,0.6);
-}
-
-::selection {
-	background-color: rgba(0,0,0,0.6);
-}
-html
-{
+html {
+	gradient: #222_#000;
 	height: 100%;
-	gradient: purple_yellow;
 }
-body
-{
-	height: 100%;
-	-vendor-box-sizing: border-box;
-	background: data-url(/img/bg.png);
+body {
 	color: #000;
 	margin: 0;
 	font: 12px 'helvetica neue', helvetica, arial, sans-serif;
 	text-rendering: optimizeLegibility;
 }
-a
-{
-	color: #000;
+img {
+	-ms-interpolation-mode:bicubic;
 }
-a:hover
-{
-	text-decoration: underline;
-}
-h1,h2
-{
-	font-weight: bold;
-	-vendor-text-shadow: 1px 1px 0 rgba(255,255,255,0.4), 0 0 15px rgba(0,0,0,0.4);
-}
-h1
-{
-	color: #111;
-	font-size: 26px;
-}
-h2
-{
-	position: absolute;
-	top: -70px;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	font-size: 50px;
-	color: #fff;
-	letter-spacing: 6px;
-}
-h3
-{
-	font-size: 17px;
-	margin: 0 0 6px;
-	font-weight: bold;
-	color:#000;
-	-vendor-text-shadow: 1px 1px 0 rgba(255,255,255,0.2), 0 0 15px rgba(0,0,0,0.4);
-}
-hr
-{
-	border: 0;
-	border-top: 1px solid rgba(0,0,0,0.3);
-	border-bottom: 1px solid rgba(255,255,255,0.3);
-	display: block;
-	margin: 10px 0;
-}
-strong
-{
-	font-weight: bold;
-}
-p
-{
-	line-height: 1.4;
-}
-ul
-{
-	padding: 4px 0 0px 15px;
-}
-li
-{
-	list-style: outside;
-	padding: 5px 0;
-	line-height: 1.4;
-}
-#page-container
-{
-	width: 550px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -165px 0 0 -315px;
-	border: 1px rgba(255,255,255,0.3) solid;
-	gradient: rgba(255,255,255,0.5)_rgba(255,255,255,0.1);
-	-vendor-box-shadow: 0px 0px 15px rgba(0,0,0,0.3), 0px 0px 10px rgba(0,0,0,0.2) inset;
-	padding: 12px 15px;
-	-vendor-border-radius: 10px;
-}
-#dummy-links a
-{
+a {
 	color: #000;
 	text-decoration: none;
-	outline: none;
-	color: #fff;
-	gradient: #292929_#111;
-	border: 1px solid #222;
-	-vendor-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.5) inset, 1px 1px 0px #666 inset;
-	-vendor-border-radius: 5px;
-	font-size: 11px;
-	line-height: 24px;
+}
+a:hover {
+	text-decoration: underline;
+}
+strong {
+	font-weight: bold;
+}
+#connected {
+	position: absolute;
+	top: 35px;
+	left: 20px;
+	width: 100px;
+	height: 100px;
+	background: red;
+	border-radius: 50px;
+	line-height: 100px;
 	text-align: center;
-	cursor: pointer;
-	padding: 0px 10px;
-	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	font-size: 23px;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+#connected.on {
+	background: green;
+}
+#connected .overlay {
+	border-radius: 50px;
+	gradient: rgba(255,255,255,0.4)_rgba(255,255,255,0.1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 5px rgba(0,0,0,0.6) inset;
+}
+#bubble {
+	position: absolute;
+	top: 20px;
+	left: 155px;
+	max-height: 100%;
+	overflow: hidden;
+	padding: 0 0 0 65px;
+}
+#bubble ul {
+	height: 2000px;
+}
+#bubble li {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em 100px;
+	color:#000;
+	gradient: #fff_#ddd;
+	border-radius:10px;
+	border-radius:10px;
+	margin-left:40px;
+	font-size: 16px;
+	min-height: 20px;
+	opacity: 0;
+	-vendor-transition: opacity 4s linear;
+}
+#bubble .avatar {
+	position: absolute;
+	right: 100%;
+	top: 10px;
+	margin-right: 45px;
+}
+#bubble .service {
+	position: absolute;
+	right: 100%;
+	top: -0px;
+	margin-right: 80px;
+	background: #fff;
+	border-radius: 20px;
+	padding: 2px;
+	box-shadow: 0 0 5px #000;
+}
+#bubble li:first-child {
+	opacity: 1;
+}
+#bubble li:after {
+	content: "";
+	position: absolute;
+	bottom: -20px;
+	left: 50px;
+	border-width: 20px 0 0 20px;
+	border-style: solid;
+	border-color: #075698 transparent;
+	display: block;
+	width: 0;
+	top:16px; 
+	left:-40px;
+	bottom:auto;
+	border-width:15px 40px 0 0;
+	border-color:transparent #eee;
+}
+
+.logins {
+	position: fixed;
+	top: 35px;
+	right: 60px;
+	gradient: #2b2b2b_#010101;
+	border-radius: 5px;
+	border: 1px solid #000;
+	padding: 5px 5px;
+	margin: 0 0 5px;
+}
+.logins li {
+	padding: 4px 10px;
+	border-bottom: 1px solid #eee;
+}
+.logins li:last-child {
+	border-bottom: 0;
+}
+.logins img {
+	margin: 0 7px 0 0;
 	position: relative;
-	margin: 0 0 0 14px;
+	top: 3px;
+	width: 16px;
+	height: 16px;
+}
+.logins a {
+	color: #000;
+}
+.logins .padding
+{
+	border-radius: 3px;
+	border: 1px solid #fff;
+	font-size: 13px;
+	background: #fff;
 }
