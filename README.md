@@ -14,7 +14,7 @@ First of all, it is very easy to understand, allowing you to start using it righ
 * Providing premade hooks to [authenticate](https://github.com/bnoguchi/everyauth) users via facebook/twitter/github
 * An [assetmanager](https://github.com/mape/connect-assetmanager/) that concatenates/mangles/compresses your CSS/JS assets to be as small and fast to deliver as possible, as well as cache busting using MD5 hashes
 * Auto updates of the browser (inline/refresh) as soon as CSS/JS/template-files are changed in order to remove all those annoying “save, tab, refresh” repetitions
-* [Notifications](http://notifo.com/) to your computer/mobile phone on certain user actions (This is something I relied heavily on last year when he was involved in NKO; as soon as a new game was started I knew about it and could jump in and interact - nobody enjoys something social if they are stuck there alone.)
+* [Notifications](http://notifo.com/) to your computer/mobile phone on certain user actions
 * Sane defaults in regards to productions/development environments
 * Logs errors to [Airbrakeapp.com](http://airbrakeapp.com/pages/home) in order to track any errors users are encountering
 * Auto matching of urls to templates without having to define a specific route (such as, visiting /file-name/ tries to serve file-name.ejs and fallbacks to index.ejs - this is helpful for quick static info pages)
