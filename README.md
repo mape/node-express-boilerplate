@@ -35,7 +35,7 @@ First of all, it is very easy to understand, allowing you to start using it righ
 	* svcadm enable redis
 
 * Then on local machine
-	* git clone [http://github.com/mape/node-express-boilerplate](http://github.com/mape/node-express-boilerplate) myproject
+	* git clone [https://github.com/mape/node-express-boilerplate](https://github.com/mape/node-express-boilerplate) myproject
 	* cd myproject
 	* cp siteConfig.sample.js siteConfig.js
 	* edit siteConfig.js settings
