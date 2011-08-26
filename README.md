@@ -4,7 +4,7 @@ node-express-boilerplate gives the developer a clean slate to start with while b
 
 ## So what does node-express-boilerplate do
 
-<img src="http://s3.amazonaws.com/files.posterous.com/temp-2011-07-27/aCjCnipkcvcbdcpEcBopytIkxnGHlyiFkcHuwfoknhkJxGkeDJorbcitmcnt/express-boiler.png.scaled500.png?AWSAccessKeyId=AKIAJFZAE65UYRT34AOQ&Expires=1313339089&Signature=L%2F5TL5evSP4KQqWkeZgGVlA9Xs4%3D">
+<img src="http://mape.me/plate.png">
 
 First of all, it is very easy to understand, allowing you to start using it right away. There is minimal need to dig around in files just to get a good idea of how things work. And if you don't like how the boiler plate is set up, just fork it and change it according to your own personal preferences.
 
