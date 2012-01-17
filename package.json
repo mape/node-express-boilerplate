@@ -1,7 +1,7 @@
 {
   "name" : "node-express-boilerplate",
   "description" : "A boilerplate used to quickly get projects going.",
-  "version" : "0.0.1",
+  "version" : "0.0.2",
   "author" : "Mathias Pettersson <mape@mape.me>",
   "engines" : ["node"],
   "repository" : { "type":"git", "url":"http://github.com/mape/node-express-boilerplate" },
@@ -15,7 +15,6 @@
     "connect-redis" : ">=1.0.7",
     "connect-notifo" : ">=0.0.1",
     "airbrake" : ">=0.2.0",
-    "everyauth" : ">=0.2.18",
-    "nodemon" : ">=0.5.3"
+    "everyauth" : ">=0.2.18"
   }
 }
