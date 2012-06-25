@@ -6,7 +6,7 @@
   "engines" : ["node"],
   "repository" : { "type":"git", "url":"http://github.com/mape/node-express-boilerplate" },
   "dependencies" : {
-    "connect" : ">=1.6.0",
+    "connect" : "1.8.7",
     "connect-assetmanager" : ">=0.0.21",
     "connect-assetmanager-handlers" : ">=0.0.17",
     "ejs" : ">=0.4.3",
